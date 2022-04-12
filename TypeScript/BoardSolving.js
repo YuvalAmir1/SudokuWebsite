@@ -6,7 +6,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from) {
 var board, boardDataString;
 var boardData = __spreadArray([], Array(9)).map(function (e) { return Array(9); });
 var solvedBoard = __spreadArray([], Array(9)).map(function (e) { return Array(9); });
-var currentBoard = __spreadArray([], Array(9)).map(function (e) { return Array(9); });
+var currentBoard;
 var inputTable = document.getElementById("input-table");
 window.onload = function () {
     board = localStorage.getItem("boardHTML");
@@ -16,23 +16,27 @@ window.onload = function () {
             boardData[row][col] = Number(boardDataString[row * 9 + col]);
         }
     }
-    currentBoard = boardData;
+    currentBoard = JSON.parse(JSON.stringify(boardData));
     solvedBoard = solve(boardData);
-    board = board.replace(/&nbsp;/g, "<input type='text' maxlength='1' class='inputs' onInput='testIfSolved(this)'> </input>");
+    console.log("board:");
+    board = board.replace(/([0-9])([0-9])(.)>&nbsp;/g, "$1$2$3><input type='text' maxlength='2' class='inputs' onInput='testIfSolved(this, $1, $2)'> </input>");
+    console.log("board:");
     document.getElementById("board").innerHTML = board;
 };
-function testIfSolved(input) {
+function testIfSolved(input, r, c) {
+    if (input.value.length === 2) {
+        if ((!isNaN(input.value[1])) && input.value[1] !== "0")
+            input.value = input.value[1];
+        else
+            input.value = input.value[0];
+    }
+    var num = +input.value;
     if (isNaN(input.value) || input.value === "0") {
         input.value = "";
     }
-    else {
-        console.log(input.value);
-        currentBoard[Number(input.id[0])][Number(input.id[3])] = Number(input.value);
-        console.log(currentBoard);
-        console.log(solvedBoard);
-        if (solvedBoard === currentBoard) {
-            alert("You won!");
-        }
+    currentBoard[Number(r)][Number(c)] = num;
+    if (JSON.stringify(solvedBoard) === JSON.stringify(currentBoard)) {
+        alert("You won!");
     }
 }
 //# sourceMappingURL=BoardSolving.js.map

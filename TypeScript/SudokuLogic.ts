@@ -202,15 +202,23 @@ function generateBoards(num: number): string {
     for (let i = 0; i < num; i++) {
         boards.push(generateBoard()[0]);
     }
-    
+
     let storedBoardsHTML = localStorage.getItem("boardsHTML") + getBoardsHTML(boards, num);
     localStorage.setItem("boardsHTML", storedBoardsHTML);
+    let storedBoardsData;
 
-    let storedBoardsData = "";
+    if (localStorage.getItem("boardsData") === null) {
+        localStorage.setItem("boardsData", "");
+    }
+    else {
+        localStorage.setItem("boardsData", localStorage.getItem("boardsData").replace("undefined", ""));
+    }
+    storedBoardsData = localStorage.getItem("boardsData");
+
     for (let i = 0; i < boards.length; i++) {
         for (let r = 0; r < 9; r++) {
             for (let c = 0; c < 9; c++) {
-                storedBoardsData += boards[i][r][c];
+                storedBoardsData += String(boards[i][r][c]);
             }
         }
     }
@@ -229,10 +237,10 @@ function getBoardsHTML(boards: number[][][], num: number): string {
             output += "<tr>";
             for (let c = 0; c < 9; c++) {
                 if (boards[i][r][c] === 0) {
-                    output += "<td id='"+ r +"," + c +"'>&nbsp;</td>";
+                    output += "<td id='" + r + "" + c + "'>&nbsp;</td>";
                 }
                 else {
-                    output += "<td id='" + r + "," + c +"'>" + boards[i][r][c] + "</td>";
+                    output += "<td id='" + r + "" + c + "'>" + boards[i][r][c] + "</td>";
                 }
             }
             output += "</tr>";

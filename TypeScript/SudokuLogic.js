@@ -184,11 +184,18 @@ function generateBoards(num) {
     }
     var storedBoardsHTML = localStorage.getItem("boardsHTML") + getBoardsHTML(boards, num);
     localStorage.setItem("boardsHTML", storedBoardsHTML);
-    var storedBoardsData = "";
+    var storedBoardsData;
+    if (localStorage.getItem("boardsData") === null) {
+        localStorage.setItem("boardsData", "");
+    }
+    else {
+        localStorage.setItem("boardsData", localStorage.getItem("boardsData").replace("undefined", ""));
+    }
+    storedBoardsData = localStorage.getItem("boardsData");
     for (var i = 0; i < boards.length; i++) {
         for (var r = 0; r < 9; r++) {
             for (var c = 0; c < 9; c++) {
-                storedBoardsData += boards[i][r][c];
+                storedBoardsData += String(boards[i][r][c]);
             }
         }
     }
@@ -204,10 +211,10 @@ function getBoardsHTML(boards, num) {
             output += "<tr>";
             for (var c = 0; c < 9; c++) {
                 if (boards[i][r][c] === 0) {
-                    output += "<td id='" + r + "," + c + "'>&nbsp;</td>";
+                    output += "<td id='" + r + "" + c + "'>&nbsp;</td>";
                 }
                 else {
-                    output += "<td id='" + r + "," + c + "'>" + boards[i][r][c] + "</td>";
+                    output += "<td id='" + r + "" + c + "'>" + boards[i][r][c] + "</td>";
                 }
             }
             output += "</tr>";

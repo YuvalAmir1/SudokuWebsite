@@ -1,7 +1,7 @@
 ﻿let board: string, boardDataString: string;
 let boardData = [...Array(9)].map(e => Array(9));
 let solvedBoard = [...Array(9)].map(e => Array(9));
-let currentBoard = [...Array(9)].map(e => Array(9));
+let currentBoard: number[][];
 let inputTable = document.getElementById("input-table");
 
 window.onload = function () {
@@ -12,23 +12,32 @@ window.onload = function () {
             boardData[row][col] = Number(boardDataString[row * 9 + col]);
         }
     }
-    currentBoard = boardData;
+    
+    currentBoard = JSON.parse(JSON.stringify(boardData));
     solvedBoard = solve(boardData);
-    board = board.replace(/&nbsp;/g, "<input type='text' maxlength='1' class='inputs' onInput='testIfSolved(this)'> </input>");
+    console.log("board:");
+    board = board.replace(/([0-9])([0-9])(.)>&nbsp;/g, "$1$2$3><input type='text' maxlength='2' class='inputs' onInput='testIfSolved(this, $1, $2)'> </input>");
+    console.log("board:");
     document.getElementById("board").innerHTML = board;
 };
 
-function testIfSolved(input: HTMLInputElement): void {
+function testIfSolved(input: HTMLInputElement, r: string, c: string): void {
+    if (input.value.length === 2) {
+        if ((!isNaN(input.value[1] as any)) && input.value[1] !== "0")
+            input.value = input.value[1];
+        else
+            input.value = input.value[0];
+    }
+
+    let num: number = +input.value;
+    
     if (isNaN(input.value as any) || input.value === "0") {
         input.value = "";
     }
-    else {
-        console.log(input.value);
-        currentBoard[Number(input.id[0])][Number(input.id[3])] = Number(input.value);
-        console.log(currentBoard);
-        console.log(solvedBoard);
-        if (solvedBoard === currentBoard) {
-            alert("You won!");
-        }
+    
+    currentBoard[Number(r)][Number(c)] = num;
+    
+    if (JSON.stringify(solvedBoard) === JSON.stringify(currentBoard)) {
+        alert("You won!");
     }
 }
