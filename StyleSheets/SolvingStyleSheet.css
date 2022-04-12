@@ -1,0 +1,47 @@
+﻿.sudoku-board {
+    width: 90vh;
+    height: 80vh;
+    border-collapse: collapse;
+    color: #0015ff;
+    background-color: #f4fbff;
+    user-select: none;
+    margin: 1em auto;
+    table-layout: fixed;
+}
+
+td {
+    border: 1px solid;
+    text-align: center;
+    font-size: 5vh;
+    border-width: thin;
+}
+
+    td:nth-child(3n) {
+        border-right: solid;
+        border-right-width: medium;
+    }
+
+    td:first-child {
+        border-left: solid;
+        border-left-width: medium;
+    }
+
+tr:nth-child(3n) td {
+    border-bottom: solid;
+    border-bottom-width: medium;
+}
+
+tr:first-child td {
+    border-top: solid;
+    border-top-width: medium;
+}
+
+input[type="text"] {
+    color: black;
+    font-size: 5vh;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: transparent;
+    text-align: center;
+}

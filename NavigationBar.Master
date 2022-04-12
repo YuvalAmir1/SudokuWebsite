@@ -1,0 +1,84 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="NavigationBar.master.cs" Inherits="SudokuWebsite.NavigationBar" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Sudoku</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        .nav {
+    		background-color: #cbddee;
+    		overflow: hidden;
+    		position: sticky;
+    		top: 0;
+    	}
+
+    		.nav a {
+    			float: left;
+    			text-align: center;
+    			padding: 14px 16px;
+    			font-size: 40px;
+    			text-decoration: none;
+    			user-select: none;
+    		}
+
+    			.nav a.notActive {
+    				color: black;
+    				background-color: #90c2ef;
+    			}
+
+    				.nav a.notActive:hover {
+    					background-color: #003B73;
+    					color: #BFD7ED;
+    				}
+
+    			.nav a.active {
+    				background-color: #1788f3;
+    				color: black;
+    			}
+
+    			.nav a.signOut {
+    				background-color: darkred;
+    				color: white;
+    				float: right;
+    			}
+
+    			.nav a.notAdmin {
+    				float: right;
+    				color: black;
+    				background-color: #90c2ef;
+    			}
+
+    			.nav a.admin {
+    				float: right;
+    				color: black;
+    				background-color: #e5ff00;
+    			}
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div class="nav">
+                <!-- TO DO: change the tabs -->
+
+                <!-- The left side of the navigation bar. -->
+                <div runat="server" id="home"></div>
+                <div runat="server" id="signIn"></div>
+                <div runat="server" id="boards"></div>
+                <div runat="server" id="userPage"></div>
+                <div runat="server" id="users"></div>
+                <div runat="server" id="stats"></div>
+
+                <!-- The right side of the navigation bar. -->
+                <div runat="server" id="userName"></div>
+                <a class="signOut" runat="server" id="signOut" onserverclick="SignOutFunction">Log Out </a>
+            </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

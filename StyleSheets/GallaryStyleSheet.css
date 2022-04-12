@@ -1,0 +1,50 @@
+﻿.sudoku-board {
+    width: 38vw;
+    height: 32vw;
+    border-collapse: collapse;
+    color: #0015ff;
+    background-color: #f4fbff;
+    user-select: none;
+    margin: 1em auto;
+    table-layout: fixed;
+    cursor: pointer;
+}
+
+    .sudoku-board:hover {
+        background-color: #e3f4ff;
+        color: #0078ff;
+    }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+    gap: 20px;
+}
+
+td {
+    border: 1px solid;
+    text-align: center;
+    font-size: 2.5vw;
+    border-width: thin;
+}
+
+    td:nth-child(3n) {
+        border-right: solid;
+        border-right-width: medium;
+    }
+
+    td:first-child {
+        border-left: solid;
+        border-left-width: medium;
+    }
+
+tr:nth-child(3n) td {
+    border-bottom: solid;
+    border-bottom-width: medium;
+}
+
+tr:first-child td {
+    border-top: solid;
+    border-top-width: medium;
+}
