@@ -58,7 +58,7 @@ namespace SudokuWebsite
             Session["signedIn"] = false;
             Session["isAdmin"] = false;
             Application["currentLoggedInCount"] = (int)Application["currentLoggedInCount"] - 1;
-            
+
             // TO DO:
             // 1. decrease the total count of logged in users
             // 2. increase the total count of guests

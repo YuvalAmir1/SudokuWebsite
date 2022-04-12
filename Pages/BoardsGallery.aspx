@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NavigationBar.Master" AutoEventWireup="true" CodeBehind="BoardsGallery.aspx.cs" Inherits="SudokuWebsite.Pages.Easy" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NavigationBar.Master" AutoEventWireup="true" CodeBehind="BoardsGallery.aspx.cs" Inherits="SudokuWebsite.Pages.BoardsGallery" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../TypeScript/SudokuLogic.js"></script>
