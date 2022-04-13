@@ -1,11 +1,15 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 var board, boardDataString;
-var boardData = __spreadArray([], Array(9)).map(function (e) { return Array(9); });
-var solvedBoard = __spreadArray([], Array(9)).map(function (e) { return Array(9); });
+var boardData = __spreadArray([], Array(9), true).map(function (e) { return Array(9); });
+var solvedBoard = __spreadArray([], Array(9), true).map(function (e) { return Array(9); });
 var currentBoard;
 var inputTable = document.getElementById("input-table");
 window.onload = function () {
@@ -18,9 +22,7 @@ window.onload = function () {
     }
     currentBoard = JSON.parse(JSON.stringify(boardData));
     solvedBoard = solve(boardData);
-    console.log("board:");
     board = board.replace(/([0-9])([0-9])(.)>&nbsp;/g, "$1$2$3><input type='text' maxlength='2' class='inputs' onInput='testIfSolved(this, $1, $2)'> </input>");
-    console.log("board:");
     document.getElementById("board").innerHTML = board;
 };
 function testIfSolved(input, r, c) {

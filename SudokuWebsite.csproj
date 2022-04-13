@@ -68,11 +68,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database.mdf" />
+    <Content Include="App_Data\Database_log.ldf">
+      <DependentUpon>Database.mdf</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="Pages\BoardsGallery.aspx" />
     <Content Include="Pages\BoardSolving.aspx" />
     <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\SignIn.aspx" />
+    <Content Include="Pages\SignUp.aspx" />
     <Content Include="StyleSheets\GallaryStyleSheet.css" />
     <Content Include="StyleSheets\SolvingStyleSheet.css" />
     <Content Include="Web.config" />
@@ -116,6 +121,13 @@
     <Compile Include="Pages\SignIn.aspx.designer.cs">
       <DependentUpon>SignIn.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SignUp.aspx.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SignUp.aspx.designer.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +145,7 @@
     <TypeScriptCompile Include="TypeScript\BoardSolving.ts" />
     <TypeScriptCompile Include="TypeScript\GenerateBoards.ts" />
     <TypeScriptCompile Include="TypeScript\SudokuLogic.ts" />
+    <TypeScriptCompile Include="TypeScript\Validate.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

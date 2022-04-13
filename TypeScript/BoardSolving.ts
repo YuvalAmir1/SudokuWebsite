@@ -15,9 +15,7 @@ window.onload = function () {
     
     currentBoard = JSON.parse(JSON.stringify(boardData));
     solvedBoard = solve(boardData);
-    console.log("board:");
     board = board.replace(/([0-9])([0-9])(.)>&nbsp;/g, "$1$2$3><input type='text' maxlength='2' class='inputs' onInput='testIfSolved(this, $1, $2)'> </input>");
-    console.log("board:");
     document.getElementById("board").innerHTML = board;
 };
 
