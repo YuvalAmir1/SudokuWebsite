@@ -78,11 +78,14 @@
     <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\SignIn.aspx" />
     <Content Include="Pages\SignUp.aspx" />
+    <Content Include="Scripts\DemoSolver.js" />
     <Content Include="StyleSheets\GallaryStyleSheet.css" />
+    <Content Include="StyleSheets\HomeStyleSheet.css" />
     <Content Include="StyleSheets\SolvingStyleSheet.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\Helper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -142,10 +145,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <TypeScriptCompile Include="TypeScript\BoardSolving.ts" />
-    <TypeScriptCompile Include="TypeScript\GenerateBoards.ts" />
-    <TypeScriptCompile Include="TypeScript\SudokuLogic.ts" />
-    <TypeScriptCompile Include="TypeScript\Validate.ts" />
+    <TypeScriptCompile Include="Scripts\BoardSolving.ts" />
+    <TypeScriptCompile Include="Scripts\GenerateBoards.ts" />
+    <TypeScriptCompile Include="Scripts\SudokuLogic.ts" />
+    <TypeScriptCompile Include="Scripts\Validate.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

@@ -1,0 +1,87 @@
+﻿.content { 
+    direction: rtl;
+    font-family: Arial;
+}
+
+p { 
+    font-size: 35px;
+}
+
+input[type="number"] {
+    font-size: 35px;
+    width: 80px;
+    
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+}
+
+.sudoku-board {
+    width: 75vh;
+    height: 75vh;
+    border-collapse: collapse;
+    color: #0015ff;
+    background-color: #f4fbff;
+    user-select: none;
+    table-layout: fixed;
+    float: right;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+td {
+    width: 1.15em;
+    height: 1em;
+    border: 1px solid;
+    text-align: center;
+    font-size: 7vh;
+    border-width: thin;
+    border-color: #0015ff;
+}
+
+    td:nth-child(3n) {
+        border-right: solid;
+        border-right-width: medium;
+        border-color: #0015ff;
+    }
+
+    td:first-child {
+        border-left: solid;
+        border-left-width: medium;
+        border-color: #0015ff;
+    }
+
+tr:nth-child(3n) td {
+    border-bottom: solid;
+    border-bottom-width: medium;
+    border-color: #0015ff;
+}
+
+tr:first-child td {
+    border-top: solid;
+    border-top-width: medium;
+    border-color: #0015ff;
+}
+
+.origin {
+    color: #0015ff;
+}
+
+.safe {
+    border-color: #0015ff;
+    color: black;
+}
+
+.unsafe {
+    border-color: #0015ff;
+    color: red;
+}
+
+button {
+    border-color: #73ccff;
+    background-color: #b7e5ff;
+    font-size: 40px;
+    margin-right: 40px;
+}

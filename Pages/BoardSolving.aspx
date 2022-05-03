@@ -7,6 +7,6 @@
     <br />
     <br />
         <div id="board"></div>
-    <script src="../TypeScript/SudokuLogic.js"></script>
-    <script src="../TypeScript/BoardSolving.js"></script>
+    <script src="../Scripts/SudokuLogic.js"></script>
+    <script src="../Scripts/BoardSolving.js"></script>
 </asp:Content>

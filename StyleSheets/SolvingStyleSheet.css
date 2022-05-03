@@ -10,38 +10,59 @@
 }
 
 td {
+    width: 1.15em;
+    height: 1em;
     border: 1px solid;
     text-align: center;
-    font-size: 5vh;
+    font-size: 100px;
     border-width: thin;
+    border-color: #0015ff;
 }
 
     td:nth-child(3n) {
         border-right: solid;
         border-right-width: medium;
+        border-color: #0015ff;
     }
 
     td:first-child {
         border-left: solid;
         border-left-width: medium;
+        border-color: #0015ff;
     }
 
 tr:nth-child(3n) td {
     border-bottom: solid;
     border-bottom-width: medium;
+    border-color: #0015ff;
 }
 
 tr:first-child td {
     border-top: solid;
     border-top-width: medium;
+    border-color: #0015ff;
 }
 
 input[type="text"] {
-    color: black;
-    font-size: 5vh;
+    font-size: 85px;
     width: 100%;
     height: 100%;
     border: 0;
     background: transparent;
     text-align: center;
+    caret-color: black;
+}
+
+.origin {
+    color: #0015ff;
+}
+
+.safe {
+    border-color: #0015ff;
+    color: black;
+}
+
+.unsafe {
+    border-color: #0015ff;
+    color: red;
 }
