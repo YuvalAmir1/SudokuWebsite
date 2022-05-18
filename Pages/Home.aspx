@@ -34,11 +34,11 @@
             <br />
             <br />
             <label for="stuck-delay">אחרי שנתקע: </label>
-            <input type="number" id="stuck-delay" name="stuck-delay" value="60" onkeyup="validateInput(this);">
+            <input type="number" id="stuck-delay" name="stuck-delay" value="45" onkeyup="validateInput(this);">
             <br />
             <br />
             <label for="remove-delay">אחרי מחיקה: </label>
-            <input type="number" id="remove-delay" name="remove-delay" value="45" onkeyup="validateInput(this);">
+            <input type="number" id="remove-delay" name="remove-delay" value="50" onkeyup="validateInput(this);">
         </p>
         <script src="../Scripts/DemoSolver.js"></script>
     </div>

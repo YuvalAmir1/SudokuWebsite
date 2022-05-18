@@ -1,4 +1,12 @@
-﻿let originalDemoBoard = generateBoard();
+﻿let originalDemoBoard;
+if (localStorage.getItem("originalDemoBoard") === null) {
+    originalDemoBoard = generateBoard();
+    localStorage.setItem("originalDemoBoard", JSON.stringify(originalDemoBoard));
+}
+else {
+    originalDemoBoard = JSON.parse(localStorage.getItem("originalDemoBoard"));
+}
+
 const solverContainer = document.getElementById("solver-container");
 solverContainer.innerHTML = getBoardHTML(originalDemoBoard, true);
 const ilegalDelay = document.getElementById("ilegal-delay");
@@ -56,10 +64,13 @@ async function demoSolve() {
 
         for (let i = demoBoard[r][c] + 1; i <= 10; i++) {
             if (i === 10) {
+                if (stuckDelay.value !== "0") {
+                    await sleep(stuckDelay.value);
+                }
                 document.getElementById(r + "" + c).innerHTML = "&nbsp;";
                 demoBoard[r][c] = 0;
                 previusIlegals = JSON.parse(JSON.stringify(ilegals));
-                ilegals = getIlegals(r, c, i, demoBoard);
+                ilegals = getIlegals(r, c, i, demoBoard, false);
                 refreshBoard();
                 direction = -1;
                 if (removeDelay.value !== "0") {
@@ -76,7 +87,7 @@ async function demoSolve() {
             document.getElementById(r + "" + c).innerText = i;
             previusIlegals = JSON.parse(JSON.stringify(ilegals));
             demoBoard[r][c] = i;
-            ilegals = getIlegals(r, c, i, demoBoard);
+            ilegals = getIlegals(r, c, i, demoBoard, false);
             refreshBoard();
             if (ilegals.length === 0) {
                 if (foundDelay.value !== "0") {
@@ -85,14 +96,8 @@ async function demoSolve() {
                 increment();
                 break;
             }
-
             else if (ilegalDelay.value !== "0") {
-                if (i === 9) {
-                    await sleep(stuckDelay.value);
-                }
-                else {
-                    await sleep(ilegalDelay.value);
-                }
+                await sleep(ilegalDelay.value);
             }
         }
 
@@ -197,6 +202,7 @@ function newBoardButtonClick() {
     demoBoard = JSON.parse(JSON.stringify(originalDemoBoard));
     solverContainer.innerHTML = getBoardHTML(demoBoard, true);
     solveButton.innerText = "פתור";
+    localStorage.setItem("originalDemoBoard", JSON.stringify(originalDemoBoard));
     solveButton.onclick = solveButtonClick;
 }
 
@@ -204,8 +210,7 @@ function validateInput(input) {
     if (parseInt(input.value) > 9999) {
         input.value = 9999; return false;
     }
-    else if (parseInt(input.value) < 0)
-    {
+    else if (parseInt(input.value) < 0) {
         input.value = 0;
         return false;
     }

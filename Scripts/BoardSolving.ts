@@ -55,7 +55,7 @@ function testIfSolved(input: HTMLInputElement, r: string, c: string): void {
 
         for (let i = 0; i < previusIlegals.length; i++) {
             if (ilegals.indexOf(previusIlegals[i]) === -1) {
-                tempIlegals = getIlegals(Number(previusIlegals[i][0]), Number(previusIlegals[i][1]), currentBoard[Number(previusIlegals[i][0])][Number(previusIlegals[i][1])], currentBoard);
+                tempIlegals = getIlegals(Number(previusIlegals[i][0]), Number(previusIlegals[i][1]), currentBoard[Number(previusIlegals[i][0])][Number(previusIlegals[i][1])], currentBoard, false);
                 if (tempIlegals.length > 0) {
                     for (let j = 0; j < tempIlegals.length; j++) {
                         if (ilegals.indexOf(tempIlegals[j]) === -1) {

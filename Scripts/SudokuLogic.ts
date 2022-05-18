@@ -53,7 +53,7 @@ function generateBoard(): number[][] {
 
         const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9].sort(() => Math.random() - 0.5);
         for (let i = 0; i < 9; i++) {
-            if (getIlegals(r, c, numbers[i], board).length === 0) {
+            if (getIlegals(r, c, numbers[i], board, true).length === 0) {
                 board[r][c] = numbers[i];
                 if (!testNext()) {
                     board[r][c] = 0;
@@ -93,15 +93,40 @@ function generateBoard(): number[][] {
     }
 
     function removeUntilListEmpty(): void {
-        let position;
-        let lastValue;
-        while (positions.length > 0) {
-            position = positions.pop();
-            lastValue = board[position[0]][position[1]];
-            board[position[0]][position[1]] = 0;
+        let removeCount = 6;
+        let lastPositions;
+        let lastValues;
+        let flage;
 
-            if (solve(board) === null) {
-                board[position[0]][position[1]] = lastValue;
+        console.log("");
+        console.log("generating board...");
+        while (positions.length > 0) {
+            flage = false;
+            lastPositions = [];
+            lastValues = [];
+            for (let i = 0; i < removeCount; i++) {
+                lastPositions.push(positions.pop());
+                lastValues.push(board[lastPositions[i][0]][lastPositions[i][1]]);
+                board[lastPositions[i][0]][lastPositions[i][1]] = 0;
+            }
+
+            for (let i = 0; i < lastPositions.length; i++) {
+                if (solve(board) === null) {
+                    console.log("failed to solve.");
+                    board[lastPositions[i][0]][lastPositions[i][1]] = lastValues[i];
+                    flage = true;
+                }
+                else {
+                    console.log("solved");
+                    break;
+                }
+            }
+
+            if (flage) {
+                removeCount = Math.ceil(removeCount / 2);
+            }
+            else {
+                console.log("Remove count: " + (removeCount));
             }
         }
     }
@@ -137,7 +162,7 @@ function solve(originalBoard): number[][] {
         }
         else {
             for (let i = 1; i <= 9; i++) {
-                if (getIlegals(r, c, i, testBoard).length === 0) {
+                if (getIlegals(r, c, i, testBoard, true).length === 0) {
                     testBoard[r][c] = i;
                     solveNext();
                 }
@@ -160,7 +185,7 @@ function solve(originalBoard): number[][] {
 }
 
 // returns the positions of all the numbers that are ilegaly placed
-function getIlegals(r, c, num, board): number[][] {
+function getIlegals(r, c, num, board, stopWhenFound): number[][] {
     let ilegals = [];
 
     for (let i = 0; i < 9; i++) {
@@ -171,6 +196,10 @@ function getIlegals(r, c, num, board): number[][] {
             if (ilegals.indexOf(i + "" + c) === -1) {
                 ilegals.push(i + "" + c);
             }
+
+            if (stopWhenFound) {
+                return ilegals;
+            }
         }
 
         if (i !== c && num === board[r][i]) {
@@ -179,6 +208,10 @@ function getIlegals(r, c, num, board): number[][] {
             }
             if (ilegals.indexOf(r + "" + i) === -1) {
                 ilegals.push(r + "" + i);
+            }
+
+            if (stopWhenFound) {
+                return ilegals;
             }
         }
     }
@@ -191,6 +224,10 @@ function getIlegals(r, c, num, board): number[][] {
                 }
                 if (ilegals.indexOf(i + "" + j) === -1) {
                     ilegals.push(i + "" + j);
+                }
+
+                if (stopWhenFound) {
+                    return ilegals;
                 }
             }
         }
