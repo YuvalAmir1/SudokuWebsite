@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Code\Helper.cs" />
+    <Content Include="App_Code\User.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
