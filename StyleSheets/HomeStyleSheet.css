@@ -1,16 +1,15 @@
-﻿.content { 
+﻿.content {
     direction: rtl;
-    font-family: Arial;
+    font-family: sans-serif;
 }
 
-p { 
+p {
     font-size: 35px;
 }
 
 input[type="number"] {
     font-size: 35px;
     width: 80px;
-    
 }
 
 input::-webkit-outer-spin-button,
@@ -29,6 +28,7 @@ input::-webkit-inner-spin-button {
     float: right;
     margin-right: 40px;
     margin-left: 40px;
+    font-family: 'Lucida Sans';
 }
 
 td {
@@ -84,5 +84,5 @@ button {
     background-color: #b7e5ff;
     font-size: 40px;
     margin-right: 40px;
-    user-select: none;                                                                                                     
+    user-select: none;
 }

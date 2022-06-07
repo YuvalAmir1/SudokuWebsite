@@ -22,6 +22,8 @@
     			font-size: 40px;
     			text-decoration: none;
     			user-select: none;
+                float: right;
+                font-family: sans-serif;
     		}
 
     			.nav a.notActive {
@@ -42,17 +44,17 @@
     			.nav a.signOut {
     				background-color: darkred;
     				color: white;
-    				float: right;
+    				float: left;
     			}
 
     			.nav a.notAdmin {
-    				float: right;
+    				float: left;
     				color: black;
     				background-color: #90c2ef;
     			}
 
     			.nav a.admin {
-    				float: right;
+    				float: left;
     				color: black;
     				background-color: #e5ff00;
     			}
@@ -64,15 +66,16 @@
             <div class="nav">
                 <!-- TO DO: change the tabs -->
 
-                <!-- The left side of the navigation bar. -->
+                <!-- The right side of the navigation bar. -->
                 <div runat="server" id="home"></div>
+                <div runat="server" id="signUp"></div>
                 <div runat="server" id="signIn"></div>
                 <div runat="server" id="boards"></div>
                 <div runat="server" id="userPage"></div>
                 <div runat="server" id="users"></div>
                 <div runat="server" id="stats"></div>
 
-                <!-- The right side of the navigation bar. -->
+                <!-- The left side of the navigation bar. -->
                 <div runat="server" id="userName"></div>
                 <a class="signOut" runat="server" id="signOut" onserverclick="SignOutFunction">Log Out </a>
             </div>

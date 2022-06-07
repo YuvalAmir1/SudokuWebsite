@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NavigationBar.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="SudokuWebsite.Pages.Home" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../StyleSheets/HomeStyleSheet.css" rel="stylesheet" />
     <script src="../Scripts/SudokuLogic.js"></script>

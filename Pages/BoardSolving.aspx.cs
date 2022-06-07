@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace SudokuWebsite.Pages
 {
-    public partial class BoardsSolving : System.Web.UI.Page
+    public partial class BoardSolving : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

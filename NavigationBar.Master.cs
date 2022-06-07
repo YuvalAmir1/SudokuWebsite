@@ -12,26 +12,29 @@ namespace SudokuWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            AddTab("Home", "Home.aspx", home);
-            AddTab("Sign In", "SignIn.aspx", signIn);
-            AddTab("Boards", "BoardsGallery.aspx", boards);
-            AddTab("User Page", "UserPage.aspx", userPage);
-            AddTab("Users", "Users.aspx", users);
-            AddTab("Statistics", "Stats.aspx", stats);
+            AddTab("בית", "Home.aspx", home);
+            AddTab("יצירת משתמש", "SignUp.aspx", signUp);
+            AddTab("התחברות", "SignIn.aspx", signIn);
+            AddTab("לוחות", "BoardsGallery.aspx", boards);
+            AddTab("משתמש", "UserPage.aspx", userPage);
+            AddTab("משתמשים", "Users.aspx", users);
+            AddTab("סטטיסטיקות", "Stats.aspx", stats);
 
             string isAdmin = (bool)Session["isAdmin"] ? "admin" : "notAdmin";
             if ((bool)Session["signedIn"]) userName.InnerHtml = $"<a class='{isAdmin}' href='UserPage.aspx'> {Session["userName"]} </a>";
-            else userName.InnerHtml = $"<a class='{isAdmin}'> Guest </a>";
+            else userName.InnerHtml = $"<a class='{isAdmin}'> אורח </a>";
 
             if ((bool)Session["signedIn"])
             {
                 signIn.Visible = false;
+                signUp.Visible = false;
                 signOut.Visible = true;
                 userPage.Visible = true;
             }
             else
             {
                 signIn.Visible = true;
+                signUp.Visible = true;
                 signOut.Visible = false;
                 userPage.Visible = false;
             }

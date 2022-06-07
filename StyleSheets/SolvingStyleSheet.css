@@ -1,20 +1,24 @@
-﻿.sudoku-board {
-    width: 90vh;
-    height: 80vh;
+﻿html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden
+}
+
+.sudoku-board {
     border-collapse: collapse;
     color: #0015ff;
     background-color: #f4fbff;
     user-select: none;
     margin: 1em auto;
-    table-layout: fixed;
+    font-size: 6vh;
+    font-family: 'Lucida Sans';
 }
 
 td {
-    width: 1.15em;
-    height: 1em;
+    height: 8vh;
+    width: 8vh;
     border: 1px solid;
     text-align: center;
-    font-size: 100px;
     border-width: thin;
     border-color: #0015ff;
 }
@@ -44,13 +48,15 @@ tr:first-child td {
 }
 
 input[type="text"] {
-    font-size: 85px;
     width: 100%;
     height: 100%;
     border: 0;
     background: transparent;
     text-align: center;
     caret-color: black;
+    font-size: 6vh;
+    font-family: 'Felix Titling';
+    font-weight: bold;
 }
 
 .origin {

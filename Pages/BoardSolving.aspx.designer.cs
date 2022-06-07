@@ -11,7 +11,7 @@ namespace SudokuWebsite.Pages
 {
 
 
-    public partial class BoardsSolving
+    public partial class BoardSolving
     {
     }
 }

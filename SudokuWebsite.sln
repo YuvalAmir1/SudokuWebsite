@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.1.32228.430
+VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SudokuWebsite", "SudokuWebsite.csproj", "{196C8F95-D3DB-4661-8CAD-D9856DB64426}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SudokuWebsite", "SudokuWebsite.csproj", "{8B0F797C-F1B5-4BAC-AD1E-007FF0FB7D3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{196C8F95-D3DB-4661-8CAD-D9856DB64426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{196C8F95-D3DB-4661-8CAD-D9856DB64426}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{196C8F95-D3DB-4661-8CAD-D9856DB64426}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{196C8F95-D3DB-4661-8CAD-D9856DB64426}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B0F797C-F1B5-4BAC-AD1E-007FF0FB7D3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B0F797C-F1B5-4BAC-AD1E-007FF0FB7D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B0F797C-F1B5-4BAC-AD1E-007FF0FB7D3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B0F797C-F1B5-4BAC-AD1E-007FF0FB7D3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1F38521C-A11E-45D6-8CFF-19E6DCBA5EB1}
+		SolutionGuid = {055D21C3-85BF-4965-9773-C9DC78DBD1B6}
 	EndGlobalSection
 EndGlobal

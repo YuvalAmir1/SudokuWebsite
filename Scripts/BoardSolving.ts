@@ -48,7 +48,7 @@ function testIfSolved(input: HTMLInputElement, r: string, c: string): void {
 
     function refreshBoard() {
         let tempIlegals;
-        
+
         if (previusIlegals.length === 0) {
             previusIlegals.push(r + "" + c);
         }
