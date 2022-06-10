@@ -1,0 +1,14 @@
+﻿#content {
+    direction: rtl;
+    zoom: 120%;
+}
+
+label { 
+    font-weight: bolder;
+}
+
+input[type="button"] {
+    border-color: #73ccff;
+    background-color: #b7e5ff;
+    zoom: 125%
+}

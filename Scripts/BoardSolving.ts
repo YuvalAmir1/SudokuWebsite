@@ -8,6 +8,8 @@ let ilegals = [];
 
 window.onload = function () {
     board = localStorage.getItem("boardHTML");
+    (<HTMLInputElement>document.getElementById("HiddenField")).value = JSON.parse(JSON.stringify(board));
+    board = board.replace(' onclick="boardClick(' + localStorage.getItem("boardNum") + ')"', "");
     boardDataString = localStorage.getItem("boardsData").substring(Number(localStorage.getItem("boardNum")) * 81, (Number(localStorage.getItem("boardNum")) + 1) * 81);
     for (let row = 0; row < 9; row++) {
         for (let col = 0; col < 9; col++) {
@@ -18,7 +20,7 @@ window.onload = function () {
     currentBoard = JSON.parse(JSON.stringify(originalBoard));
     solvedBoard = solve(originalBoard);
     board = board.replace(/id=(.)([0-9])([0-9])(.)>&nbsp;/g, "><input type='text' id='$2$3' maxlength='2' class='safe' onInput='testIfSolved(this,$2,$3)'> </input>");
-    document.getElementById("board").innerHTML = board;
+    document.getElementById("board").innerHTML = JSON.parse(JSON.stringify(board));
 };
 
 function testIfSolved(input: HTMLInputElement, r: string, c: string): void {
@@ -33,7 +35,6 @@ function testIfSolved(input: HTMLInputElement, r: string, c: string): void {
 
     let num = Number(input.value);
 
-
     if (isNaN(input.value as any) || input.value === "0") {
         input.value = "";
     }
@@ -43,7 +44,7 @@ function testIfSolved(input: HTMLInputElement, r: string, c: string): void {
     }
 
     if (JSON.stringify(solvedBoard) === JSON.stringify(currentBoard)) {
-        alert("You won!");
+        alert("ניצחת!");
     }
 
     function refreshBoard() {

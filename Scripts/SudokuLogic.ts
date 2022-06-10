@@ -293,7 +293,6 @@ function getBoardsHTML(boards: number[][][], num: number): string {
 
 function boardClick(boardNum: number): void {
     let boardHTML = document.getElementById("table " + boardNum).outerHTML;
-    boardHTML = boardHTML.replace(' onclick="boardClick(' + boardNum + ')"', "");
     localStorage.setItem("boardHTML", boardHTML);
     localStorage.setItem("boardNum", String(boardNum));
     window.location.href = "BoardSolving.aspx";

@@ -9,7 +9,6 @@ namespace SudokuWebsite
 {
     public class Global : System.Web.HttpApplication
     {
-
         protected void Application_Start(object sender, EventArgs e)
         {
             Application["currentVisitorsCount"] = 0;
@@ -21,7 +20,7 @@ namespace SudokuWebsite
         {
             Session["isAdmin"] = false;
             Session["signedIn"] = false;
-            Session["userName"] = null;
+            Session["username"] = "";
             Application["currentVisitorsCount"] = (int)Application["currentVisitorsCount"] + 1;
             Application["currentGuestsCount"] = (int)Application["currentGuestsCount"] + 1;
         }

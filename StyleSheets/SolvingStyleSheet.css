@@ -9,14 +9,14 @@
     color: #0015ff;
     background-color: #f4fbff;
     user-select: none;
-    margin: 1em auto;
+    margin: 0.5em auto;
     font-size: 6vh;
     font-family: 'Lucida Sans';
 }
 
 td {
-    height: 8vh;
-    width: 8vh;
+    height: 7vh;
+    width: 7.5vh;
     border: 1px solid;
     text-align: center;
     border-width: thin;
@@ -71,4 +71,12 @@ input[type="text"] {
 .unsafe {
     border-color: #0015ff;
     color: red;
+}
+
+button {
+    zoom: 2;
+    border-color: #73ccff;
+    background-color: #b7e5ff;
+    display: table;
+    margin: 0 auto;
 }

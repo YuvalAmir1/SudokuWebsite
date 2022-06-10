@@ -1,0 +1,12 @@
+﻿.content {
+    direction: rtl;
+    font-family: sans-serif;
+    font-size: larger;
+    zoom: 200%;
+}
+
+input[type="button"] {
+    margin: 5px;
+    border-color: #73ccff;
+    background-color: #b7e5ff;
+}

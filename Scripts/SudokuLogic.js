@@ -258,7 +258,6 @@ function getBoardsHTML(boards, num) {
 }
 function boardClick(boardNum) {
     var boardHTML = document.getElementById("table " + boardNum).outerHTML;
-    boardHTML = boardHTML.replace(' onclick="boardClick(' + boardNum + ')"', "");
     localStorage.setItem("boardHTML", boardHTML);
     localStorage.setItem("boardNum", String(boardNum));
     window.location.href = "BoardSolving.aspx";

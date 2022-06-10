@@ -21,7 +21,6 @@
         <br />
         <br />
     </div>
-
     <div id="solver-container"></div>
     <div class="content">
         <h2>כמות הזמן בין מהלכים באלפי שניות:</h2>

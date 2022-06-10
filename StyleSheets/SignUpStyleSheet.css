@@ -3,3 +3,10 @@
     font-family: sans-serif;
     font-size: larger;
 }
+
+input[type="button"] {
+    margin: 5px;
+    border-color: #73ccff;
+    background-color: #b7e5ff;
+    zoom: 150%
+}

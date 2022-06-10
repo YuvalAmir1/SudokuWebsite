@@ -21,8 +21,8 @@ namespace SudokuWebsite
             AddTab("סטטיסטיקות", "Stats.aspx", stats);
 
             string isAdmin = (bool)Session["isAdmin"] ? "admin" : "notAdmin";
-            if ((bool)Session["signedIn"]) userName.InnerHtml = $"<a class='{isAdmin}' href='UserPage.aspx'> {Session["userName"]} </a>";
-            else userName.InnerHtml = $"<a class='{isAdmin}'> אורח </a>";
+            userName.Attributes.Add("class", isAdmin);
+            userName.InnerText = (bool)Session["signedIn"] ? (string)Session["username"] : "אורח";
 
             if ((bool)Session["signedIn"])
             {
@@ -30,6 +30,7 @@ namespace SudokuWebsite
                 signUp.Visible = false;
                 signOut.Visible = true;
                 userPage.Visible = true;
+                userName.Attributes.Add("href", "Pages/UserPage.aspx");
             }
             else
             {
@@ -37,12 +38,15 @@ namespace SudokuWebsite
                 signUp.Visible = true;
                 signOut.Visible = false;
                 userPage.Visible = false;
+                userName.Attributes.Remove("href");
             }
 
             if ((bool)Session["isAdmin"])
             {
                 users.Visible = true;
                 stats.Visible = true;
+                
+
             }
             else
             {
@@ -61,11 +65,7 @@ namespace SudokuWebsite
             Session["signedIn"] = false;
             Session["isAdmin"] = false;
             Application["currentLoggedInCount"] = (int)Application["currentLoggedInCount"] - 1;
-
-            // TO DO:
-            // 1. decrease the total count of logged in users
-            // 2. increase the total count of guests
-
+            Application["currentGuestsCount"] = (int)Application["currentGuestsCount"] + 1;            
             Response.Redirect("SignIn.aspx");
         }
     }
