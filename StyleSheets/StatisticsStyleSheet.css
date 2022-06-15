@@ -1,0 +1,34 @@
+﻿table {
+    direction: rtl;
+    font-size: 70px;
+    width: 100%;
+    text-align: right;
+    border-collapse: collapse;
+    background-color: #d5e4f3;
+    user-select: none;
+}
+
+table, th, td {
+    border: 1px solid;
+    border-color: #0015ff;
+    border-width: thick;
+}
+
+tr:nth-child(2n) {
+    border-bottom: solid;
+    background-color: #d8f1ff;
+}
+
+td { 
+    width: 15%;
+    text-align: center;
+}
+
+button {
+    border-color: #73ccff;
+    background-color: #b7e5ff;
+    font-size: 40px;
+    margin: 15px;
+    float: right;
+    user-select: none;
+}

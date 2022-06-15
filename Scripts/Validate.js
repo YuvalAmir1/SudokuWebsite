@@ -19,7 +19,8 @@ function validateInfo(signUp) {
         var vFirstName = validateFirstName(firstName, errorDiv);
         var vLastName = validateLastName(lastName, errorDiv);
         var vPhone = validatePhone(phone, errorDiv);
-        output = output && vFirstName && vLastName && vPhone;
+        var vCity = validateCity(city, errorDiv);
+        output = output && vFirstName && vLastName && vPhone && vCity;
     }
     if (output) {
         form.submit();
@@ -76,6 +77,11 @@ function validatePhone(phone, errorDiv) {
         return sl && on;
     }
     return true;
+}
+function validateCity(city, errorDiv) {
+    if (typeof (city) === "undefined")
+        return true;
+    return underMaximum(city, 16, errorDiv, "העיר לא יכולה להיות בעורך של יותר מ15 תווים.");
 }
 function overMinimum(input, minimum, errorDiv, errorMessage) {
     if (input.length < minimum) {

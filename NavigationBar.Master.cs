@@ -16,9 +16,9 @@ namespace SudokuWebsite
             AddTab("יצירת משתמש", "SignUp.aspx", signUp);
             AddTab("התחברות", "SignIn.aspx", signIn);
             AddTab("לוחות", "BoardsGallery.aspx", boards);
-            AddTab("משתמש", "UserPage.aspx", userPage);
+            AddTab("פרופיל", "UserPage.aspx", userPage);
             AddTab("משתמשים", "Users.aspx", users);
-            AddTab("סטטיסטיקות", "Stats.aspx", stats);
+            AddTab("סטטיסטיקות", "Statistics.aspx", statistics);
 
             string isAdmin = (bool)Session["isAdmin"] ? "admin" : "notAdmin";
             userName.Attributes.Add("class", isAdmin);
@@ -44,14 +44,12 @@ namespace SudokuWebsite
             if ((bool)Session["isAdmin"])
             {
                 users.Visible = true;
-                stats.Visible = true;
-                
-
+                statistics.Visible = true;
             }
             else
             {
                 users.Visible = false;
-                stats.Visible = false;
+                statistics.Visible = false;
             }
 
             void AddTab(string pageName, string pageLink, HtmlContainerControl htmlContainer)

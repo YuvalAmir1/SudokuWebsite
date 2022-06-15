@@ -1,9 +1,6 @@
 ﻿.content {
     direction: rtl;
-}
-
-p {
-    font-size: 35px;
+    font-size: larger;
 }
 
 input[type="number"] {

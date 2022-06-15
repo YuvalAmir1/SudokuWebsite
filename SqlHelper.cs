@@ -5,6 +5,7 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Services;
+using System.Data.SqlTypes;
 
 
 namespace SudokuWebsite
@@ -32,17 +33,6 @@ namespace SudokuWebsite
             }
         }
 
-        public static DataTable GetDataTable(string query)
-        {
-            OpenConnection();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            CloseConnection();
-            return dt;
-        }
-
         public static void ExecuteQuery(string query)
         {
             OpenConnection();
@@ -59,6 +49,7 @@ namespace SudokuWebsite
             SqlDataReader reader = cmd.ExecuteReader();
             DataTable output = new DataTable();
             output.Load(reader);
+            cmd.Dispose();
             CloseConnection();
             return output;
         }
@@ -100,9 +91,7 @@ namespace SudokuWebsite
         public static bool UsernameCheck(string username)
         {
             DataTable data = RetriveData($"SELECT * FROM {table} WHERE UserName = '{username}'");
-            if (data.Rows.Count == 0)
-                return false;
-            return true;
+            return (data != null && data.Rows.Count != 0);
         }
 
         public static void SaveBoard(string username, string boardData)
@@ -116,9 +105,9 @@ namespace SudokuWebsite
             ExecuteQuery(query);
         }
 
-        public static void UpdateUser(string username, string[] data)
+        public static void UpdateUser(string username, string[] data, bool isAdmin)
         {
-            string query = $"UPDATE {table} SET UserName = '{data[0]}', Password = '{data[1]}', FirstName = N'{data[2]}', LastName = N'{data[3]}', Gender = N'{data[4]}', BirthDate = '{data[5]}', Email = '{data[6]}', PhoneNumber = '{data[7]}', City = N'{data[8]}' WHERE UserName = '{username}'";
+            string query = $"UPDATE {table} SET IsAdmin = '{isAdmin}', UserName = '{data[0]}', Password = '{data[1]}', FirstName = N'{data[2]}', LastName = N'{data[3]}', Gender = N'{data[4]}', BirthDate = '{data[5]}', Email = '{data[6]}', PhoneNumber = '{data[7]}', City = N'{data[8]}' WHERE UserName = '{username}'";
             ExecuteQuery(query);
         }
 

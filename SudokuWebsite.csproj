@@ -79,14 +79,19 @@
     <Content Include="Pages\SelfDataUpdate.aspx" />
     <Content Include="Pages\SignIn.aspx" />
     <Content Include="Pages\SignUp.aspx" />
+    <Content Include="Pages\Statistics.aspx" />
     <Content Include="Pages\UserPage.aspx" />
+    <Content Include="Pages\Users.aspx" />
     <Content Include="Scripts\DemoSolver.js" />
     <Content Include="StyleSheets\GallaryStyleSheet.css" />
     <Content Include="StyleSheets\HomeStyleSheet.css" />
+    <Content Include="StyleSheets\NavigationBarStyleSheet.css" />
     <Content Include="StyleSheets\SignInStyleSheet .css" />
     <Content Include="StyleSheets\SignUpStyleSheet.css" />
     <Content Include="StyleSheets\SolvingStyleSheet.css" />
+    <Content Include="StyleSheets\StatisticsStyleSheet.css" />
     <Content Include="StyleSheets\UserPageStyleSheet.css" />
+    <Content Include="StyleSheets\UsersStyleSheet.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -100,12 +105,26 @@
     <Compile Include="Pages\SelfDataUpdate.aspx.designer.cs">
       <DependentUpon>SelfDataUpdate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Statistics.aspx.cs">
+      <DependentUpon>Statistics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Statistics.aspx.designer.cs">
+      <DependentUpon>Statistics.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\UserPage.aspx.cs">
       <DependentUpon>UserPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\UserPage.aspx.designer.cs">
       <DependentUpon>UserPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
     </Compile>
     <Compile Include="SqlHelper.cs" />
     <Compile Include="NavigationBar.Master.cs">
@@ -167,6 +186,7 @@
     <TypeScriptCompile Include="Scripts\BoardSolving.ts" />
     <TypeScriptCompile Include="Scripts\GenerateBoards.ts" />
     <TypeScriptCompile Include="Scripts\SudokuLogic.ts" />
+    <TypeScriptCompile Include="Scripts\Users.ts" />
     <TypeScriptCompile Include="Scripts\Validate.ts" />
   </ItemGroup>
   <ItemGroup>

@@ -23,7 +23,8 @@
         let vFirstName = validateFirstName(firstName, errorDiv);
         let vLastName = validateLastName(lastName, errorDiv);
         let vPhone = validatePhone(phone, errorDiv);
-        output = output && vFirstName && vLastName && vPhone;
+        let vCity = validateCity(city, errorDiv);
+        output = output && vFirstName && vLastName && vPhone && vCity;
     }
 
     if (output) {
@@ -89,6 +90,12 @@ function validatePhone(phone, errorDiv) {
         return sl && on;
     }
     return true;
+}
+
+function validateCity(city, errorDiv) {
+    if (typeof(city) === "undefined")
+        return true;
+    return underMaximum(city, 16, errorDiv, "העיר לא יכולה להיות בעורך של יותר מ15 תווים.")
 }
 
 

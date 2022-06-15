@@ -1,0 +1,22 @@
+﻿.header {
+    direction: rtl;
+}
+
+#gridView {
+    width: 100%;
+    max-width: 100%
+}
+
+.button {
+    border-color: #73ccff;
+    background-color: #b7e5ff;
+}
+
+div { 
+    direction: rtl;
+    margin: 5px;
+}
+
+.inputs { 
+    margin: 3px;
+}

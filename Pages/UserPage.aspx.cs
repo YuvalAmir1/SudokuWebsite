@@ -13,10 +13,10 @@ namespace SudokuWebsite.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!(bool)Session["signedIn"])
-                Response.Redirect("Home.aspx");
+                Response.Redirect("SignIn.aspx");
             else
             {
-                Session["activePage"] = "משתמש";
+                Session["activePage"] = "פרופיל";
 
                 DataRow User = SqlHelper.FindUser((string)Session["username"]);
                 greetings.InnerText = $"שלום {(string)User["FirstName"]}!";
@@ -32,7 +32,10 @@ namespace SudokuWebsite.Pages
                 if ((string)User["SavedBoards"] != "")
                     savedBoards.InnerHtml = (string)User["SavedBoards"];
                 else
+                {
                     savedBoardsLabel.Visible = false;
+                    boardsClearButton.Visible = false;
+                }
             }
         }
 

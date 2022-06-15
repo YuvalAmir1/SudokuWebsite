@@ -38,14 +38,14 @@
         <br />
         <label for="phoneNumber">מספר טלפון:</label>
         <span id="phoneNumber" name="phoneNumber" clientidmode="static" runat="server"></span>
-        <br />
+        <br />  
         <br />
         <span id="city" name="city" clientidmode="static" runat="server"></span>
         <input type="button" onclick="location.href='SelfDataUpdate.aspx';" value="עדכן נתונים" />
         <br />
         <br />
         <label for="savedBoards" id="savedBoardsLabel" runat="server">לוחות שמורים: </label>
-        <input type="button" onserverclick="ClearBoards" runat="server" value="מחק לוחות שמורים" />
+        <input type="button" id="boardsClearButton" onserverclick="ClearBoards" runat="server" value="מחק לוחות שמורים" />
     </div>
     <div id="savedBoards" class="grid-container" name="savedBoards" clientidmode="static" runat="server"></div>
 </asp:Content>

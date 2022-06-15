@@ -12,6 +12,9 @@ namespace SudokuWebsite.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!(bool)Session["signedIn"])
+                Response.Redirect("Home.aspx");
+
             if (!IsPostBack)
             {
                 DataRow User = SqlHelper.FindUser((string)Session["username"]);
@@ -48,7 +51,7 @@ namespace SudokuWebsite.Pages
                     string sPhone = $"05{phone.Value[0]}-{phone.Value.Substring(1, 7)}";
                     string sCity = city.Value;
                     string[] arr = new string[] { sUsername, sPassword, sFirstName, sLastName, sGender, sBirthDate, sEmail, sPhone, sCity };
-                    SqlHelper.UpdateUser((string)Session["username"], arr); ;
+                    SqlHelper.UpdateUser((string)Session["username"], arr, false); ;
                     Session["username"] = sUsername;
                 }
             }

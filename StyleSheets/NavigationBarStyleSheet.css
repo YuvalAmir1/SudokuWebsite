@@ -1,0 +1,54 @@
+﻿body {
+    font-family: sans-serif;
+}
+
+.nav {
+    background-color: #cbddee;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+}
+
+    .nav a {
+        float: left;
+        text-align: center;
+        padding: 14px 16px;
+        font-size: 40px;
+        text-decoration: none;
+        user-select: none;
+        float: right;
+        font-family: sans-serif;
+    }
+
+        .nav a.notActive {
+            color: black;
+            background-color: #90c2ef;
+        }
+
+            .nav a.notActive:hover {
+                background-color: #003B73;
+                color: #BFD7ED;
+            }
+
+        .nav a.active {
+            background-color: #1788f3;
+            color: black;
+        }
+
+        .nav a.signOut {
+            background-color: darkred;
+            color: white;
+            float: left;
+        }
+
+a.notAdmin {
+    float: left;
+    color: black;
+    background-color: #90c2ef;
+}
+
+a.admin {
+    float: left;
+    color: black;
+    background-color: #e5ff00;
+}

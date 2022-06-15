@@ -24,7 +24,7 @@
         <br />
         <br />
         <label for="gender">מגדר:</label>
-        <select name="gender" id="gender" ClientIDMode="static" runat="server">
+        <select name="gender" id="gender" clientidmode="static" runat="server">
             <option value="גבר">גבר</option>
             <option value="אישה">אישה</option>
             <option value="other">מעדיף/ה לא לציין</option>
@@ -32,25 +32,27 @@
         <br />
         <br />
         <label for="birthDate">תעריך לידה:</label>
-        <input type="date" name="birthDate" id="birthDate" ClientIDMode="static" runat="server"/>
+        <input type="date" name="birthDate" id="birthDate" clientidmode="static" runat="server" />
         <br />
         <br />
         <label for="email">דואר אלקטרוני:</label>
-        <input type="email" placeholder="הדואר אלקטרוני שלך" name="email" id="email" ClientIDMode="static" runat="server">
+        <input type="email" placeholder="הדואר אלקטרוני שלך" name="email" id="email" clientidmode="static" runat="server">
         <br />
         <br />
         <label for="phoneNumber">מספר טלפון:</label>
-        <input type="text" name="phone" id="phone" ClientIDMode="static" size="5" runat="server"> 05
+        <input type="text" name="phone" id="phone" clientidmode="static" size="5" runat="server">
+        05
         <br />
         <br />
         <label for="city">עיר:</label>
-        <input type="text" placeholder="עיר המגורים שלך" name="city" id="city" ClientIDMode="static" runat="server">
+        <input type="text" placeholder="עיר המגורים שלך" name="city" id="city" clientidmode="static" runat="server">
         <br />
         <br />
-        <input type="button" value="עדכון משתמש" id="submitButton" onclick="validateInfo(true)"/>
-        <input type="button" id="resetForm" ClientIDMode="static" value="איפוס" onserverclick="ResetData" runat="server"/>
+        <input type="button" value="עדכון משתמש" id="submitButton" onclick="validateInfo(true)" />
+        <input type="button" id="resetForm" clientidmode="static" value="איפוס" onserverclick="ResetData" runat="server" />
+        <input type="button" onclick="location.href='UserPage.aspx';" value="ביטול" />
         <br />
         <br />
-        <div id="errorText" ClientIDMode="static" style="color: red; font-weight: bolder;" runat="server"></div>
+        <div id="errorText" clientidmode="static" style="color: red; font-weight: bolder;" runat="server"></div>
     </div>
 </asp:Content>
