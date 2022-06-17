@@ -272,7 +272,8 @@ function getBoardsHTML(boards: number[][][], num: number): string {
     let output = "";
 
     for (let i = 0; i < num; i++) {
-        output += "<div class='grid-item'><table class='sudoku-board' id='table " + (i + Number(localStorage.getItem("boardsCount"))) + "' onClick='boardClick(" + (i + Number(localStorage.getItem("boardsCount"))) + ")'>";
+        output += "<div class='grid-item'><table class='sudoku-board' id='table " + (i + Number(localStorage.getItem("boardsCount"))) +
+            "' onClick='boardClick(" + (i + Number(localStorage.getItem("boardsCount"))) + ")'>";
         for (let r = 0; r < 9; r++) {
             output += "<tr>";
             for (let c = 0; c < 9; c++) {

@@ -107,7 +107,9 @@ namespace SudokuWebsite
 
         public static void UpdateUser(string username, string[] data, bool isAdmin)
         {
-            string query = $"UPDATE {table} SET IsAdmin = '{isAdmin}', UserName = '{data[0]}', Password = '{data[1]}', FirstName = N'{data[2]}', LastName = N'{data[3]}', Gender = N'{data[4]}', BirthDate = '{data[5]}', Email = '{data[6]}', PhoneNumber = '{data[7]}', City = N'{data[8]}' WHERE UserName = '{username}'";
+            string query = $"UPDATE {table} SET IsAdmin = '{isAdmin}', UserName = '{data[0]}', Password = '{data[1]}', FirstName = N'{data[2]}', " +
+                $"LastName = N'{data[3]}', Gender = N'{data[4]}', BirthDate = '{data[5]}', Email = '{data[6]}', PhoneNumber = '{data[7]}', " +
+                $"City = N'{data[8]}' WHERE UserName = '{username}'";
             ExecuteQuery(query);
         }
 

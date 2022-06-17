@@ -17,14 +17,9 @@ namespace SudokuWebsite.Pages
 
         public void SaveBoard(object sender, EventArgs e)
         {
-            if (!(bool)Session["signedIn"])
-                Response.Write("<script>alert('רק משתמשים מחוברים יכולים לשמור לוחות.');</script>");
-            else
-            {
-                string boardData = HiddenField.Value;
-                SqlHelper.SaveBoard((string)Session["username"], boardData);
-                saveButton.Visible = false;
-            }
+            string boardData = HiddenField.Value;
+            SqlHelper.SaveBoard((string)Session["username"], boardData);
+            saveButton.Visible = false;
         }
     }
 }

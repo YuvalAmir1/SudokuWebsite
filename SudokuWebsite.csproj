@@ -186,7 +186,6 @@
     <TypeScriptCompile Include="Scripts\BoardSolving.ts" />
     <TypeScriptCompile Include="Scripts\GenerateBoards.ts" />
     <TypeScriptCompile Include="Scripts\SudokuLogic.ts" />
-    <TypeScriptCompile Include="Scripts\Users.ts" />
     <TypeScriptCompile Include="Scripts\Validate.ts" />
   </ItemGroup>
   <ItemGroup>

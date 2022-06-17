@@ -28,7 +28,9 @@ namespace SudokuWebsite.Pages
 
         private void BindGrid()
         {
-            string query = $"SELECT IsAdmin, UserName, Password, FirstName, LastName, Gender, BirthDate, Email, PhoneNumber, City FROM Users WHERE {(string)Session["filterTarget"]} LIKE '%{(string)Session["filterLike"]}%' ORDER BY {(string)Session["orderBy"]} {((bool)Session["ascending"] ? "ASC" : "DESC")}";
+            string query = $"SELECT IsAdmin, UserName, Password, FirstName, LastName, Gender, BirthDate, Email, PhoneNumber, " +
+                $"City FROM Users WHERE {(string)Session["filterTarget"]} LIKE '%{(string)Session["filterLike"]}%' " +
+                $"ORDER BY {(string)Session["orderBy"]} {((bool)Session["ascending"] ? "ASC" : "DESC")}";
             DataTable dataTable = SqlHelper.RetriveData(query);
             gridView.DataSource = dataTable;
             gridView.DataBind();
@@ -74,7 +76,8 @@ namespace SudokuWebsite.Pages
         {
             if (usernameUpdating.Text == targetUpdating.Text || !SqlHelper.UsernameCheck(usernameUpdating.Text))
             {
-                SqlHelper.UpdateUser(targetUpdating.Text, new string[] { usernameUpdating.Text, passwordUpdating.Text, firstNameUpdating.Text, lastNameUpdating.Text, genderUpdating.Text, birthDateUpdating.Text, emailUpdating.Text, phoneUpdating.Text, cityUpdating.Text }, isAdminUpdating.Checked);
+                SqlHelper.UpdateUser(targetUpdating.Text, new string[] { usernameUpdating.Text, passwordUpdating.Text, firstNameUpdating.Text, lastNameUpdating.Text,
+                    genderUpdating.Text, birthDateUpdating.Text, emailUpdating.Text, phoneUpdating.Text, cityUpdating.Text }, isAdminUpdating.Checked);
                 CancelUpdate(sender, e);
             }
         }

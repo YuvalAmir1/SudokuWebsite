@@ -122,5 +122,4 @@
             <asp:BoundField DataField="City" HeaderText="עיר" SortExpression="City" />
         </Columns>
     </asp:GridView>
-    <script src="../Scripts/Users.js"></script>
 </asp:Content>

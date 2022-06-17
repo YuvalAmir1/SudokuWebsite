@@ -239,7 +239,8 @@ function generateBoards(num) {
 function getBoardsHTML(boards, num) {
     var output = "";
     for (var i = 0; i < num; i++) {
-        output += "<div class='grid-item'><table class='sudoku-board' id='table " + (i + Number(localStorage.getItem("boardsCount"))) + "' onClick='boardClick(" + (i + Number(localStorage.getItem("boardsCount"))) + ")'>";
+        output += "<div class='grid-item'><table class='sudoku-board' id='table " + (i + Number(localStorage.getItem("boardsCount"))) +
+            "' onClick='boardClick(" + (i + Number(localStorage.getItem("boardsCount"))) + ")'>";
         for (var r = 0; r < 9; r++) {
             output += "<tr>";
             for (var c = 0; c < 9; c++) {

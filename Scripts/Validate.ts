@@ -47,7 +47,6 @@ function clearForm(signUp) {
         (<HTMLInputElement>document.getElementById("birthDate")).value = "";
         (<HTMLInputElement>document.getElementById("city")).value = "";
     }
-
 }
 
 function validateUsername(username, errorDiv) {
