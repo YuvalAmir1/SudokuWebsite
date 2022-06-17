@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../Scripts/SudokuLogic.js"></script>
-    <link href="../StyleSheets/GallesryStyleSheet.css" rel="stylesheet" />
+    <link href="../StyleSheets/GalleryStyleSheet.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
